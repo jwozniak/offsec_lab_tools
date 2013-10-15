@@ -1,6 +1,20 @@
 Tools for Offsec PWB Labs
 ========
 
+axfr.rb
+--------
+
+An example Ruby script that attempts a full DNS zone transfer (AXFR) using dnsruby
+
+```
+Usage: axfr.rb [options] zone
+
+Available options:
+    -n, --nameserver HOSTNAME        Specify the nameserver to AXFR zone from
+    -w, --timeout SECONDS            Wait timeout in seconds
+    -v, --verbose                    Be more verbose
+    -h, --help                       Show this help
+```
 
 
 mping.sh
