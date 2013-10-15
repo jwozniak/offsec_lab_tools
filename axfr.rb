@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 #
-# == mping.rb
+# == axfr.rb
 #
-# A ruby tool to perform a ping sweep 
+#  DNS zone transfer tool
 #
 # == Usage 
 #  
