@@ -69,4 +69,4 @@ end
 zone.each do |line| 
   puts line
 end
-puts "[*] Total #{zone.count} recodrds transferred." if options[:verbose]
+puts "[*] Total #{zone.count} records transferred." if options[:verbose]
