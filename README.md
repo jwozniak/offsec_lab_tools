@@ -16,7 +16,34 @@ Available options:
     -h, --help                       Show this help
 ```
 
+smtpvrfy.rb
+--------
 
+Multithreaded SMTP user enumartion tool. You can fine tune the number of threads and users checked in one connection. 
+Please note that some SMTP servers might not allow you to do more than a few VRFY calls. The default is to 
+reconnect after checkign 3 users. Without the dictionary file the tool only checks for a few standard users. 
+
+```
+# ./smtpvrfy.rb -h
+Usage: smtpvrfy.rb [options] SMTP_SERVER[:PORT]
+Where available options:
+    -t, --threads N                  Number of threads (connections) to use - Default: 50
+    -c, --chunk N                    Recycle the connection (thread) after N number of users checked - Default: 3
+    -u, --user FILE                  Read a dict file with users
+    -d, --debug                      Enable session debug
+    -h, --help                       Show this help
+
+``` 
+Example:
+
+```
+# ./smtpvrfy.rb -t 10 -c 5 -u userdict.txt 192.168.11.215
+Time: 00:00:20 |===================================================>>| 100% VRFY
+adm@redhat.acme.com
+apache@redhat.acme.com
+bin@redhat.acme.com
+bob@redhat.acme.com
+```
 mping.sh
 ---------
 
