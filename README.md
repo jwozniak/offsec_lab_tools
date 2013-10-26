@@ -87,3 +87,45 @@ Time: 00:00:10 |================================================================
 192.168.11.206
 192.168.11.208
 ```
+
+ftpfuzz.rb
+---------
+
+A basic ftp fuzzer
+
+```
+Usage: ftpfuzz.rb [options] ftp-host[:port]
+
+Where available options:
+    -u, --user USER                  FTP Username
+    -p, --pass PASS                  FTP Password
+    -c, --command COMMAND            FTP command to fuzz
+    -P, --payload PAYLOAD            Payload to repeat
+    -i, --increment INT              Increment the payload times
+    -v, --verbose                    Verbose output
+    -h, --help                       Show this help
+```
+
+Example:
+
+```
+# ./ftpfuzz.rb -v -u ftp -p ftp -P A -i 300 -c APPE 192.168.1.4 
+220 Welcome to Code-Crafters - Ability Server 2.34. (Ability Server 2.34 by Code-Crafters).
+USER ftp
+331 Please send PASS now.
+PASS ftp
+230- Welcome to Code-Crafters - Ability Server 2.34.
+230 User 'ftp' logged in.
+
+[*] Using: APPE A
+[*] Sending A of size 1 characters
+550 File write/modification access disallowed.
+[*] Sending A of size 301 characters
+550 File write/modification access disallowed.
+[*] Sending A of size 601 characters
+550 File write/modification access disallowed.
+[*] Sending A of size 901 characters
+550 File write/modification access disallowed.
+[*] Sending A of size 1201 characters
+./ftpfuzz.rb:73:in `gets': Connection reset by peer (Errno::ECONNRESET) 
+```
